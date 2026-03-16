@@ -2,50 +2,77 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>処方薬ページ</title>
 
 <style>
+/* 全体の計算ルール：パディングを幅に含める */
+* {
+  box-sizing: border-box;
+}
 
-body{
-margin:0;
-font-family:sans-serif;
-background:#ffffff;
-padding-bottom:80px;
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background: #ffffff;
+  /* 2. 下ボタンに隠れないよう、余白をボタンの高さ以上に設定 */
+  padding-bottom: 100px;
 }
 
 /* 画像 */
-.page-image{
-width:100%;
-display:block;
+.page-image {
+  width: 100%;
+  display: block;
 }
 
-/* 下固定ボタン */
-.bottom-buttons{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-display:flex;
+/* 3. 下固定ボタンのレイアウト改善 */
+.bottom-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  /* 上に少し影をつけて、コンテンツとの境界をはっきりさせる */
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+  /* ボタンの高さを確保 */
+  height: 70px;
 }
 
-.back{
-flex:1;
-background:#cfd8dc;
-padding:18px;
-text-align:center;
-text-decoration:none;
-color:black;
-font-weight:bold;
+/* 共通のボタンスタイル */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.2s;
 }
 
-.reserve{
-flex:1;
-background:#ffd600;
-padding:18px;
-text-align:center;
-text-decoration:none;
-color:black;
-font-weight:bold;
+.btn:active {
+  opacity: 0.7; /* 押した時に少し色が薄くなる反応 */
+}
+
+/* 戻るボタン：控えめな色とサイズ */
+.back {
+  flex: 2; /* 割合を少し小さく */
+  background: #cfd8dc;
+  color: #455a64;
+  font-size: 16px;
+}
+
+/* 予約ボタン：目立つ色と大きな文字 */
+.reserve {
+  flex: 3; /* 割合を大きくして押しやすく */
+  background: #ffd600;
+  color: #000;
+  font-size: 20px; /* 文字を大きく */
+  border-left: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 4. アイコン用のスタイル（絵文字を使用） */
+.icon {
+  margin-right: 8px;
+  font-size: 1.2em;
 }
 
 </style>
@@ -54,29 +81,20 @@ font-weight:bold;
 
 <body>
 
-<!-- 画像1 -->
-<img src="S__77103116.jpg" class="page-image">
+<img src="S__77103116.jpg" class="page-image" alt="処方薬説明1">
+<img src="S__77103111_0.jpg" class="page-image" alt="処方薬説明2">
+<img src="S__77103112_0.jpg" class="page-image" alt="処方薬説明3">
+<img src="S__77103113_0.jpg" class="page-image" alt="処方薬説明4">
 
-<!-- 画像2 -->
-<img src="S__77103113_0.jpg" class="page-image">
-
-<!-- 画像3 -->
-<img src="S__77103112_0.jpg" class="page-image">
-
-<!-- 画像4 -->
-<img src="S__77103111_0.jpg" class="page-image">
-
-
-<!-- 下固定ボタン -->
 <div class="bottom-buttons">
 
-<a href="https://line.me/R/ti/p/@468abuod" class="back">
-戻る
-</a>
+  <a href="https://line.me/R/ti/p/@468abuod" class="btn back">
+    <span class="icon">◀</span>戻る
+  </a>
 
-<a href="https://liff.line.me/2009400645-19jige5V/salon/dateselector/week/2026/3/15?liff_id=2009400645-19jige5V&is=GN9yXejuAI" class="reserve">
-予約する
-</a>
+  <a href="https://liff.line.me/2009400645-19jige5V/salon/dateselector/week/2026/3/15?liff_id=2009400645-19jige5V&is=GN9yXejuAI" class="btn reserve">
+    <span class="icon">📅</span>予約する
+  </a>
 
 </div>
 
